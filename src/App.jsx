@@ -1,21 +1,24 @@
-import {
-  createBrowserRouter,
-  createRoutesFromElements,
-  Route,
-  RouterProvider,
-} from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { MainLayout } from './components';
+import { Home, About } from './pages';
 
-import { MainLayout, Home, About} from './components';
-
-const basePath ='';
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path={basePath} element={<MainLayout />}>
-      <Route index element={<Home />} />
-      <Route path="about" element={<About />} />
-    </Route>,
-  ),
-);
+const basePath = '';
+const router = createBrowserRouter([
+  {
+    path: basePath,
+    element: <MainLayout />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: 'about',
+        element: <About />,
+      },
+    ],
+  },
+]);
 
 const App = () => <RouterProvider router={router} />;
 

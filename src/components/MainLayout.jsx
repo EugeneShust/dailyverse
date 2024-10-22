@@ -1,15 +1,15 @@
 import { Outlet } from 'react-router-dom';
 
-import { Header, Footer } from "./index"
+import { Header, Footer } from './index';
 
 export const MainLayout = () => {
-    return (
-      <>
-        <Header />
-        <div className="container mx-auto">
-          <Outlet />
-        </div>
-        <Footer />
-      </>
-    );
-  };
+  return (
+    <>
+      <Header />
+      <main className="container mx-auto">
+        <Outlet />
+      </main>
+      <Footer />
+    </>
+  );
+};
